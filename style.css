@@ -62,9 +62,10 @@ nav a {
     color: white;
 }
 
-#content {
+.content {
     width: 70%;
     max-width: 60rem;
+    padding-bottom: 1rem;
     margin: 0 auto;
 }
 
@@ -74,7 +75,7 @@ h2 {
     padding-top: 1rem;
 }
 
-#about {
+#about-background {
     background-color: var(--red);
 }
 
@@ -88,6 +89,10 @@ h2 {
     background-color: white;
 }
 
+#music-background {
+    background-color: midnightblue;
+}
+
 #music {
     display: flex;
     flex-direction: column;
@@ -95,6 +100,7 @@ h2 {
 }
 
 iframe {
+    margin-bottom: 1rem;
     padding: 1rem;
     border-radius: 1rem;
     box-shadow: 0 0 1rem 0 white;
