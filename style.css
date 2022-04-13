@@ -51,7 +51,7 @@ header img {
         gap: 1rem;
     }
 
-    #header-container > div {
+    #header-container>div {
         display: block;
     }
 
@@ -109,6 +109,40 @@ h2 {
 #about p {
     text-align: justify;
     font-size: large;
+}
+
+#art-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -0.5rem;
+}
+
+#art-container .column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-sizing: border-box;
+    flex: 100%;
+    max-width: 100%;
+    padding: 0 0.5rem;
+}
+
+@media screen and (min-width: 400px) {
+    #art-container .column {
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    #art-container .column {
+        flex: 25%;
+        max-width: 25%;
+    }
+}
+
+#art-container img {
+    width: 100%;
 }
 
 #music {
