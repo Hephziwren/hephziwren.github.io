@@ -150,7 +150,13 @@ h2 {
 }
 
 #art-container img {
+    cursor: pointer;
     width: 100%;
+    transition-duration: 0.2s;
+}
+
+#art-container img:hover {
+    box-shadow: 0 0 2rem 0 rgba(255, 255, 255, 0.6);
 }
 
 /* Music section */
