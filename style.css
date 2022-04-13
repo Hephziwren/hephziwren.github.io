@@ -164,39 +164,35 @@ h2 {
 /* Art close-up dialog */
 
 #dialog {
-    width: 100%;
+    width: max-content;
     height: 100%;
     padding: 0;
     border: none;
     background-color: transparent;
+    overflow: hidden;
 }
 
 #dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-#dialog div {
+#dialog img {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
     height: 100%;
     width: 100%;
-    box-sizing: border-box;
-    padding: 1rem;
-    border-radius: 1rem;
-    color: white;
-    background-color: rgb(30, 30, 30);
-    text-align: center;
-}
-
-#dialog img {
     object-fit: contain;
 }
 
 #dialog p {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     margin: 0;
+    padding: 1rem;
+    text-align: justify;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 #dialog button {
@@ -206,10 +202,11 @@ h2 {
     right: 1rem;
     width: 2rem;
     height: 2rem;
+    padding: 0;
     border: none;
     border-radius: 50%;
     color: white;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.2);
     transition-duration: 0.2s;
 }
 
