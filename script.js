@@ -3,6 +3,7 @@ const imgs = [
     { src: "./assets/catwoman_x_batman_02-loss.JPG", title: "Catwoman x Batman", desc: "Collab with @misterloon. I drew Catwoman." },
     { src: "./assets/chilling_in_the_carpark_with_friends,_setting_fire_to_bins-loss.png", title: "Chilling in the carpark with friends, setting fire to bins", desc: "" },
     { src: "./assets/finished_new_pfp-loss.png", title: "Profile Picture", desc: "" },
+    { src: "./assets/Elyon-Vesper-Sachiel-loss.png", title: "Elyon - Vesper - Sachiel", desc: "" },
     { src: "./assets/lockscreen-loss.png", title: "Lockscreen", desc: "" },
     { src: "./assets/New_profile_pic_(smiling)-loss.jpg", title: "Smiling Profile Picture", desc: "" },
     { src: "./assets/Of_Kate-loss.png", title: "Of Kate", desc: "" },
@@ -11,6 +12,12 @@ const imgs = [
     { src: "./assets/vampire_with_braces-loss.png", title: "Vampire With Braces", desc: "" },
     { src: "./assets/You_liar-loss.png", title: "You Liar", desc: "" },
     { src: "./assets/Zoe_Wilkins-loss.png", title: "Zoe Wilkins", desc: "" },
+    { src: "./assets/angelie_and_azreal_orange_version-loss.png", title: "Angelie and Azreal", desc: "" },
+    { src: "./assets/Grey_wilderdale-loss.png", title: "Gery Wilderdale", desc: "" },
+    { src: "./assets/Paris_and_Vincent-loss.png", title: "Paris and Vincent", desc: "" },
+    { src: "./assets/semi-realism_practice-loss.png", title: "Semi-Realism Practice", desc: "" },
+    { src: "./assets/sona_lamp_blue-loss.png", title: "Sona Lamp (blue)", desc: "" },
+    { src: "./assets/sona_lamp_pfp-loss.png", title: "Sona Lamp (green)", desc: "" },
 ];
 
 const masonry = document.getElementById("art-container");
