@@ -1,10 +1,14 @@
 :root {
     --white-0: rgb(255, 255, 255);
     --white-1: rgb(200, 200, 200);
-    --grey-0: #242424;
-    --grey-1: #303030;
+    --grey-0: rgb(36, 36, 36);
+    --grey-1: rgb(48, 48, 48);
+    --grey-2: rgb(60, 60, 60);
     --coral: rgb(231, 89, 89);
-    --blue: #8cb4ff;
+    --blue: rgb(140, 180, 255);
+    --transparent-grey-0: rgba(36, 36, 36, 0.9);
+    --transparent-grey-1: rgba(36, 36, 36, 0.8);
+    --transparent-grey-2: rgba(36, 36, 36, 0.7);
 
 
     --accent-color: var(--blue);
@@ -107,13 +111,13 @@ nav a {
 main {
     max-width: 60rem;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 0 1rem;
 }
 
 h2 {
     font-size: 2rem;
     margin: 0;
-    padding-top: 1rem;
+    margin-top: 2rem;
     color: var(--text-color);
 }
 
@@ -139,94 +143,97 @@ a {
 /* Art section */
 
 #art-container {
-    display: flex;
-    flex-wrap: wrap;
+    column-width: 12rem;
+    column-gap: 1rem;
+    padding-top: 0;
 }
 
-#art-container .column {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    box-sizing: border-box;
-    flex: 100%;
-    max-width: 100%;
-    padding: 0 0.5rem;
-}
-
-@media screen and (min-width: 400px) {
-    #art-container .column {
-        flex: 50%;
-        max-width: 50%;
-    }
-}
-
-@media screen and (min-width: 750px) {
-    #art-container .column {
-        flex: 25%;
-        max-width: 25%;
-    }
+#art-container button {
+    background-color: var(--grey-2);
+    padding: 0;
+    border: none;
+    border-radius: 1rem;
+    margin-top: 1rem;
 }
 
 #art-container img {
     cursor: pointer;
     width: 100%;
-    transition-duration: 0.2s;
+    transition: transform 0.1s;
+    border-radius: 1rem;
+    margin-bottom: -3px;
 }
 
 #art-container img:hover {
-    box-shadow: 0 0 2rem 0 rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 1rem black;
+    transform: scale(1.05);
 }
 
-/* Music section */
+/* Art close-up modal */
 
-#music {
+#modal__container {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: none;
+    transition: backdrop-filter 0.3s, visibility 0.3s;
+}
+
+#modal__container.visible {
+    visibility: visible;
+    backdrop-filter: blur(0.5rem);
+}
+
+#modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-}
-
-/* Art close-up dialog */
-
-#dialog {
+    position: fixed;
     width: max-content;
-    height: 100%;
+    height: max-content;
     padding: 0;
     border: none;
-    background-color: transparent;
     overflow: hidden;
+    margin: auto;
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
-#dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.8);
+#modal.visible {
+    opacity: 1;
 }
 
-#dialog img {
-    position: relative;
-    height: 100%;
-    width: 100%;
+#modal img {
+    max-height: 90vh;
+    max-width: 90vw;
     object-fit: contain;
 }
 
-#dialog div {
+#modal div {
     box-sizing: border-box;
     position: absolute;
     bottom: 0;
     width: 100%;
     padding: 1rem;
-    text-align: justify;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--text-color);
+    background-color: var(--transparent-grey-1);
 }
 
-#dialog h3 {
+#modal h3 {
     margin: 0;
 }
 
-#dialog p {
+#modal p {
     margin: 0;
 }
 
-#dialog button {
+#modal button {
     cursor: pointer;
     position: absolute;
     top: 1rem;
@@ -237,31 +244,32 @@ a {
     border: none;
     border-radius: 50%;
     color: white;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--transparent-grey-2);
     transition-duration: 0.2s;
 }
 
-#dialog button:hover {
+#modal button:hover {
     transform: scale(1.2);
 }
 
 /* Back-to-top floating button */
 
 #button-top {
-    cursor: pointer;
+    cursor: default;
     position: fixed;
     display: flex;
     bottom: 1rem;
     right: 1rem;
     border: none;
     border-radius: 1rem;
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.4);
     background-color: rgb(63, 63, 189);
     color: white;
     transition-duration: 0.2s;
     font-size: 1.5em;
     padding: 1rem;
     text-decoration: none;
+    opacity: 0;
 }
 
 #button-top:hover {
