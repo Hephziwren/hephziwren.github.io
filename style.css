@@ -4,7 +4,6 @@
     --grey-0: rgb(36, 36, 36);
     --grey-1: rgb(48, 48, 48);
     --grey-2: rgb(60, 60, 60);
-    --coral: rgb(231, 89, 89);
     --blue: rgb(140, 180, 255);
     --transparent-grey-0: rgba(36, 36, 36, 0.8);
     --transparent-grey-1: rgba(36, 36, 36, 0.7);
@@ -92,10 +91,8 @@ header img {
 
 h1 {
     font-size: clamp(1rem, 15vw, 3.5rem);
-
     font-family: "Courier New", "Courier", "Lucida Sans Typewriter", "Lucida Typewriter", "monospace";
     margin: 0;
-    /* color: var(--coral); */
     background: var(--peach-gradient);
     background-clip: text;
     -webkit-background-clip: text;
@@ -155,7 +152,7 @@ a {
 /* About section */
 
 #about p {
-    font-size: large;
+    font-size: larger;
 }
 
 /* Art section */
