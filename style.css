@@ -6,17 +6,21 @@
     --grey-2: rgb(60, 60, 60);
     --coral: rgb(231, 89, 89);
     --blue: rgb(140, 180, 255);
-    --transparent-grey-0: rgba(36, 36, 36, 0.9);
-    --transparent-grey-1: rgba(36, 36, 36, 0.8);
-    --transparent-grey-2: rgba(36, 36, 36, 0.7);
+    --transparent-grey-0: rgba(36, 36, 36, 0.8);
+    --transparent-grey-1: rgba(36, 36, 36, 0.7);
 
+    --peach-gradient: linear-gradient(10deg, rgb(253, 72, 72) 10%, rgb(255, 230, 0));
 
-    --accent-color: var(--blue);
     --bg-color: var(--grey-0);
     --card-bg-color: var(--grey-1);
     --text-color: var(--white-0);
     --muted-text-color: var(--white-1);
     --link-color: var(--blue);
+}
+
+@font-face {
+    font-family: quicksand;
+    src: url(./assets/Quicksand-VariableFont_wght.ttf);
 }
 
 html {
@@ -26,8 +30,9 @@ html {
 
 body {
     font-family: "Courier New", "Courier", "Lucida Sans Typewriter", "Lucida Typewriter", "monospace";
-    margin: 0 0 1rem 0;
+    font-family: 'quicksand';
     color: var(--text-color);
+    margin: 0;
 }
 
 * {
@@ -87,11 +92,21 @@ header img {
 
 h1 {
     font-size: clamp(1rem, 15vw, 3.5rem);
+
+    font-family: "Courier New", "Courier", "Lucida Sans Typewriter", "Lucida Typewriter", "monospace";
     margin: 0;
-    color: var(--coral);
+    /* color: var(--coral); */
+    background: var(--peach-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 header span {
+    margin: 0 0.2rem;
+}
+
+header span.subtitle {
     color: var(--muted-text-color);
     font-size: large;
     font-style: italic;
@@ -104,6 +119,7 @@ nav {
 
 nav a {
     color: var(--text-color);
+    letter-spacing: 0.1rem;
 }
 
 /* Main content */
@@ -119,6 +135,8 @@ h2 {
     margin: 0;
     margin-top: 2rem;
     color: var(--text-color);
+
+    font-family: "Courier New", "Courier", "Lucida Sans Typewriter", "Lucida Typewriter", "monospace";
 }
 
 .card {
@@ -222,7 +240,7 @@ a {
     width: 100%;
     padding: 1rem;
     color: var(--text-color);
-    background-color: var(--transparent-grey-1);
+    background-color: var(--transparent-grey-0);
 }
 
 #modal h3 {
@@ -244,7 +262,7 @@ a {
     border: none;
     border-radius: 50%;
     color: white;
-    background-color: var(--transparent-grey-2);
+    background-color: var(--transparent-grey-1);
     transition-duration: 0.2s;
 }
 
@@ -275,4 +293,47 @@ a {
 #button-top:hover {
     transform: scale(1.1);
     box-shadow: 0 0 1.2rem 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Socials */
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    background-color: var(--card-bg-color);
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+footer span {
+    background: var(--peach-gradient);
+    background-clip: text;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+footer i {
+    vertical-align: middle;
+}
+
+footer a {
+    position: relative;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    padding-bottom: 4px;
+}
+
+footer a::after {
+    position: absolute;
+    background: var(--peach-gradient);
+    content: "";
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
 }
