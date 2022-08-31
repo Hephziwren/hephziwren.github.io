@@ -305,6 +305,8 @@ footer {
 }
 
 footer span {
+    display: flex;
+    gap: 0.2rem;
     background: var(--peach-gradient);
     background-clip: text;
     -moz-background-clip: text;
@@ -317,20 +319,17 @@ footer i {
 }
 
 footer a {
-    position: relative;
+    display: flex;
+    flex-direction: column;
     -webkit-text-fill-color: transparent;
     letter-spacing: 0.1rem;
     font-weight: bold;
     text-decoration: none;
-    padding-bottom: 4px;
 }
 
 footer a::after {
-    position: absolute;
     background: var(--peach-gradient);
     content: "";
-    bottom: 0;
-    left: 0;
     height: 1px;
     width: 100%;
 }
