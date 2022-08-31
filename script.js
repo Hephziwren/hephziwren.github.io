@@ -8,32 +8,74 @@ const imgs = [
     { src: "./assets/Of_Kate-loss.png", title: "Of Kate", desc: "" },
     { src: "./assets/perspective_at_a_party_-_Fanta-loss.png", title: "Perspective at a party - Fanta", desc: "" },
     { src: "./assets/Stuck_ugh-loss.JPG", title: "Stuck Ugh", desc: "" },
-    { src: "./assets/vampire_with_braces-loss.png", title: "Vampier With Braces", desc: "" },
+    { src: "./assets/vampire_with_braces-loss.png", title: "Vampire With Braces", desc: "" },
     { src: "./assets/You_liar-loss.png", title: "You Liar", desc: "" },
     { src: "./assets/Zoe_Wilkins-loss.png", title: "Zoe Wilkins", desc: "" },
 ];
 
-const columns = document.getElementsByClassName("column");
-let dialog = document.getElementById("dialog");
-let dialogImg = document.getElementById("dialog__img");
-let dialogH3 = document.getElementById("dialog__h3");
-let dialogP = document.getElementById("dialog__p");
+const masonry = document.getElementById("art-container");
 
 for (let i = 0; i < imgs.length; i++) {
-    let img = new Image();
+    const btn = document.createElement("button")
+    const img = new Image();
+
     img.src = imgs[i].src;
     img.alt = imgs[i].title;
     img.setAttribute("data-index", i);
-    img.addEventListener("click", showDialog);
-    columns[i % 4].appendChild(img);
+    
+    btn.type = "button";
+    btn.addEventListener("click", showmodal);
+
+    btn.appendChild(img);
+    masonry.appendChild(btn);
 }
 
-document.getElementById("dialog__button").addEventListener("click", e => dialog.close());
+const modal = document.getElementById("modal");
+const modalContainer = document.getElementById("modal__container");
+const modalImg = document.getElementById("modal__img");
+const modalH3 = document.getElementById("modal__h3");
+const modalP = document.getElementById("modal__p");
 
-function showDialog(e) {
-    let index = e.target.dataset.index;
-    dialogImg.src = e.target.src;
-    dialogH3.textContent = imgs[index].title;
-    dialogP.textContent = imgs[index].desc;
-    dialog.showModal();
+const hideModal = () => {
+    modalContainer.classList.remove("visible");
+    modal.classList.remove("visible");
+};
+
+document.addEventListener("click", (e) => {
+    // Check if close button
+    // Or modal backdrop pressed
+    if (e.target.matches("#modal__button") ||
+        e.target === e.target.closest("#modal__container")
+    ) {
+        hideModal();
+    }
+});
+
+document.addEventListener("keyup", (e) => {
+    if (e.key === "Escape") {
+        hideModal();
+    }
+});
+
+document.addEventListener("scroll", () => {
+    const btn = document.getElementById("button-top");
+    if (window.scrollY > 20) {
+        btn.style.opacity = 1;
+        btn.style.cursor = "pointer";
+    } else {
+        btn.style.opacity = 0;
+        btn.style.cursor = "default";
+    }
+})
+
+function showmodal(e) {
+    const index = e.target.dataset.index;
+
+    modalImg.src = e.target.src;
+    modalImg.alt = imgs[index].title;
+    modalH3.textContent = imgs[index].title;
+    modalP.textContent = imgs[index].desc;
+
+    modal.classList.add("visible");
+    modalContainer.classList.add("visible");
 }
